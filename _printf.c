@@ -10,27 +10,21 @@
 int _printf(const char *format, ...)
 {
 	int len = 0, idx = 0;
+	char check;
 	va_list printf_arg;
 	va_start(printf_arg, format);
-	char check, a_char; *str;
 
 	if (format == NULL)
 		return (1);
 	for (idx = 0; format[idx] != '\0'; idx++)
 	{
-		if (forrmat[idx] == '%')
+		if (format[idx] == '%')
 		{
 			idx++;
 			check = format[idx];
-			if (check == 'c');
+			if (check == 'c'|| check == 's')
 			{
-				va_arg(printf_arg, int);
-				len += _putchar(a_char);
-			}
-			else if (check == 's')
-			{
-				str = va_arg(printf_arg, char *);
-				len += _putstr(str);
+				len += (f_caller(check))(printf_arg);
 			}
 		}
 		else

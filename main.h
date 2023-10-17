@@ -5,11 +5,11 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
-typedef struct func_char
+typedef struct function_character
 {
-	char sp;
-	int *func(va_list);
-}f_char;
+	char specifier;
+	int (*funt)(va_list);
+}f_ch;
 
 /*_printf function*/
 int _printf(const char *format, ...);
@@ -17,5 +17,7 @@ int _printf(const char *format, ...);
 int _putchar(va_list);
 /*_putstr function to print strings*/
 int _putstr(va_list);
+/* *f_caller calls other funtions*/
+int (*f_caller(char check))(va_list);
 
 #endif
