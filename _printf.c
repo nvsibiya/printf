@@ -12,12 +12,25 @@ int _putchar(char c)
 	return (write((1, &c, 1));
 }
 
+int _putstr(char *str)
+{
+	int i = 0;
+	str_len = 0;
+
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		write(1, &str[i], 1);
+		str_len++;
+	}
+	return (str_len);
+}
+
 int _printf(const char *format, ...)
 {
 	int len = 0, idx = 0;
 	va_list printf_arg;
 	va_start(printf_arg, format);
-	char check, a_char;
+	char check, a_char; *str;
 
 	if (format == NULL)
 		return (1);
@@ -31,6 +44,11 @@ int _printf(const char *format, ...)
 			{
 				va_arg(printf_arg, int);
 				len += _putchar(a_char);
+			}
+			else if (check == 's')
+			{
+				str = va_arg(printf_arg, char *);
+				len += _putstr(str);
 			}
 		}
 		else
