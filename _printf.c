@@ -7,24 +7,6 @@
  * Return: number of chars printed.
  */
 
-int _putchar(char c)
-{
-	return (write((1, &c, 1));
-}
-
-int _putstr(char *str)
-{
-	int i = 0;
-	str_len = 0;
-
-	for (i = 0; str[i] != '\0'; i++)
-	{
-		write(1, &str[i], 1);
-		str_len++;
-	}
-	return (str_len);
-}
-
 int _printf(const char *format, ...)
 {
 	int len = 0, idx = 0;
